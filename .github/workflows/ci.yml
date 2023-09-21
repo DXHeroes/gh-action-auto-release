@@ -1,0 +1,21 @@
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+    test-action:
+        name: "Test release action"
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              id: checkout
+              uses: actions/checkout@v4
+            - id: test-action
+              uses: ./
+              with:
+                  who-to-greet: Prokop
+            - name: Print Output
+              id: output
+              run: echo "${{ steps.test-action.outputs.time }}"
+
+# uses: https://github.com/DXHeroes/gh-action-auto-release
