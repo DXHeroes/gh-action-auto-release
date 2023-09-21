@@ -6,7 +6,7 @@
   "author": "Prokop Simek <prokop@dxheroes.io>",
   "license": "MIT",
   "scripts": {
-    "build": "ncc build src/index.ts --license licenses.txt"
+    "build": "ncc build src/index.ts --out dist --license licenses.txt && ncc build src/setLink.ts --out dist/setLink"
   },
   "dependencies": {
     "@actions/core": "^1.10.1",

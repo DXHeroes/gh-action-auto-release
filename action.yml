@@ -236,7 +236,7 @@ runs:
     - name: Prepare link to package manager for Slack message
       if: contains(github.event.head_commit.message, 'chore(release)')
       id: package-manager-link
-      run: 'node dist/setLink.js --release-type ${{ inputs.release-type }} --package-name ${{ inputs.package-name }} --github-org ${{ github.repository_owner }}'
+      run: 'node dist/setLink/index.js --release-type ${{ inputs.release-type }} --package-name ${{ inputs.package-name }} --github-org ${{ github.repository_owner }}'
       shell: bash
 
     # Send a Slack notification about the release
