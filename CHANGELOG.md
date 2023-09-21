@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.4](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.3...v0.1.4) (2023-09-21)
+
+
+### Bug Fixes
+
+* env vars ([aabca43](https://github.com/DXHeroes/gh-action-auto-release/commit/aabca43f33bc5d8b3f4dfe51bd365f6384e8567c))
+* secrets to env ([1224c6a](https://github.com/DXHeroes/gh-action-auto-release/commit/1224c6a17d14e8334ca002ca18a336d7f7ee1ed9))
+
 ## [0.1.3](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.2...v0.1.3) (2023-09-21)
 
 
