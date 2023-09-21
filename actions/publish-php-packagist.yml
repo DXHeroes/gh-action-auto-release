@@ -1,0 +1,13 @@
+# This workflow will publish a package to packagist.org when a release is created
+
+name: Publish to packagist.org
+
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hotaruma/packagist-sync@v1
+        with:
+          packagist-username: ${{ secrets.PACKAGIST_USERNAME }}
+          api-token: ${{ secrets.PACKAGIST_TOKEN }}

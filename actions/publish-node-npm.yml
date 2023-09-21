@@ -4,8 +4,7 @@
 name: Publish to npmjs.com
  
 jobs:
-  publish-npm:
-    if: contains(github.event.head_commit.message, 'chore(release)') 
+  publish:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3

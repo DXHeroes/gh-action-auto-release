@@ -3027,7 +3027,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const minimist_1 = __importDefault(__nccwpck_require__(871));
-const VALID_RELEASE_TYPES = ['test', 'node'];
+// https://github.com/google-github-actions/release-please-action/tree/main#release-types-supported
+const VALID_RELEASE_TYPES = [
+    'elixir',
+    'go',
+    'helm',
+    'java',
+    'maven',
+    'node',
+    'ocaml',
+    'python',
+    'php',
+    'ruby',
+    'rust',
+    'sfdx',
+    'simple',
+    'terraform-module',
+];
 try {
     core.info(`Validating input parameters...`);
     // get input values
