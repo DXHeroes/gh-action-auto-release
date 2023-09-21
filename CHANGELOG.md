@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.5](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.4...v0.1.5) (2023-09-21)
+
+
+### Bug Fixes
+
+* add package-path settings ([e6a9ff6](https://github.com/DXHeroes/gh-action-auto-release/commit/e6a9ff6ab9858d81f12571f09ca101b90066a54e))
+
 ## [0.1.4](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.3...v0.1.4) (2023-09-21)
 
 
