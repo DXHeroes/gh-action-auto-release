@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.7](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.6...v0.1.7) (2023-09-21)
+
+
+### Bug Fixes
+
+* upgrade test lib version ([11580c8](https://github.com/DXHeroes/gh-action-auto-release/commit/11580c8a006e4d343d1083df972a323410471e6d))
+
 ## [0.1.6](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.5...v0.1.6) (2023-09-21)
 
 
