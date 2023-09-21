@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.6](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.5...v0.1.6) (2023-09-21)
+
+
+### Bug Fixes
+
+* add slack webhook url ([30819c3](https://github.com/DXHeroes/gh-action-auto-release/commit/30819c35ba7756ffc3c81222793ef91e3ecb9a9b))
+
 ## [0.1.5](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.4...v0.1.5) (2023-09-21)
 
 
