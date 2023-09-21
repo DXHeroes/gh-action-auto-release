@@ -132,6 +132,11 @@ inputs:
   proxy-server:
     description: 'set proxy sever when you run this action behind a proxy. format is host:port e.g. proxy-host.com:8080'
 
+outputs:
+  package-manager-link:
+    description: 'Link to the package manager where the package was published'
+    value: ${{ steps.package-manager-link.outputs.package-manager-link }}
+
 runs:
   using: 'composite'
   steps:
@@ -144,6 +149,7 @@ runs:
 
     # Processing the package release with release-please
     - name: release-please
+      id: release-please
       uses: google-github-actions/release-please-action@v3
       with:
         release-type: ${{ inputs.release-type }}
@@ -227,6 +233,12 @@ runs:
     # TODO: Add publishing to other package managers
     # ...
 
+    - name: Prepare link to package manager for Slack message
+      if: contains(github.event.head_commit.message, 'chore(release)')
+      id: package-manager-link
+      run: 'node dist/setLink.js --release-type ${{ inputs.release-type }} --package-name ${{ inputs.package-name }} --github-org ${{ github.repository_owner }}'
+      shell: bash
+
     # Send a Slack notification about the release
     - name: Slack Notification
       id: slack
@@ -241,7 +253,7 @@ runs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "Your package <https://www.stackoverflow.com|*name@v2*> has been released!"
+                  "text": "Your package <*${{ jobs.package-manager-link.outputs.package-manager-link }}@${{ jobs.release-please.outputs.major }}.${{ jobs.release-please.outputs.minor }}.${{ jobs.release-please.outputs.patch }}*> has been released!"
                 }
               },
               {
