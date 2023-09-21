@@ -14,8 +14,8 @@ runs:
   using: 'composite'
   steps:
     - name: Checks
-      run: 'dist/index.js'
-      shell: node
+      run: 'node dist/index.js'
+      shell: bash
     - name: release-plase
       uses: google-github-actions/release-please-action@v3.7.10
       with:
