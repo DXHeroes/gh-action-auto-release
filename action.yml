@@ -5,6 +5,11 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
+  type:
+    description: 'Type of package to release'
+    required: true
+    default: test # Possible values: [test, node]
+
 # outputs:
 #   time: # id of output
 #     description: 'The time we greeted you'
@@ -21,3 +26,10 @@ runs:
       with:
         release-type: node
         package-name: hello-world
+    - name: Publish test
+      if: input.type == 'test'
+      run: 'echo "Publishing test successfull"'
+      shell: bash
+    - name: Publish to npmjs.com
+      if: contains(github.event.head_commit.message, 'chore(release)') && input.type == node
+      uses: ./actions/publish-npm.yml
