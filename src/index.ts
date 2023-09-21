@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import minimist from 'minimist';
 
-const VALID_RELEASE_TYPES = ['test', 'node'];
+const VALID_RELEASE_TYPES = ['node'];
 
 try {
     core.info(`Validating input parameters...`);

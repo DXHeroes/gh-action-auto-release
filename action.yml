@@ -10,6 +10,9 @@ inputs:
     description: 'Type of package to release'
     required: true
     default: test # Possible values: [test, node]
+  with-release-please:
+    description: 'Arbitrary parameters to pass to release-please. See https://github.com/google-github-actions/release-please-action/#configuration for more information.'
+    required: false
 
 runs:
   using: 'composite'
@@ -26,6 +29,7 @@ runs:
     - name: release-please
       uses: google-github-actions/release-please-action@v3
       with:
+        <<: ${{ inputs.with-release-please }}
         release-type: ${{ inputs.release-type }}
         package-name: ${{ inputs.package-name }}
 

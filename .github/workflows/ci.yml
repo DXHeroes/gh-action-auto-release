@@ -5,9 +5,13 @@ on:
         branches:
             - main
 
+permissions:
+    contents: write
+    pull-requests: write
+
 jobs:
     test-action:
-        name: "Test release action"
+        name: "Release Action"
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -16,6 +20,9 @@ jobs:
               with:
                 package-name: hello-world
                 release-type: node
+                with-release-please: |
+                    extra-files: |
+                        README.md
               env: 
                 NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                 
