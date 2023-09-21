@@ -223,3 +223,48 @@ runs:
       env:
         PACKAGIST_USERNAME: ${{ env.PACKAGIST_USERNAME }}
         PACKAGIST_TOKEN: ${{ env.PACKAGIST_TOKEN }}
+
+    # TODO: Add publishing to other package managers
+    # ...
+
+    # Send a Slack notification about the release
+    - name: Slack Notification
+      id: slack
+      if: contains(github.event.head_commit.message, 'chore(release)') && env.SLACK_WEBHOOK_URL != null
+      uses: slackapi/slack-github-action@v1
+      with:
+        # For posting a rich message using Block Kit
+        payload: |
+          {
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "Your package <https://www.stackoverflow.com|*name@v2*> has been released!"
+                }
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "image",
+                    "image_url": "https://raw.githubusercontent.com/DXHeroes/gh-action-auto-release/main/docs/dxh.png",
+                    "alt_text": "images"
+                  },
+                  {
+                    "type": "mrkdwn",
+                    "text": "Author: DX Heroes"
+                  }
+                ]
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ env.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+
+
