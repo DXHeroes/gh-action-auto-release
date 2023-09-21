@@ -17,6 +17,9 @@ inputs:
     description: 'Arbitrary parameters to pass to release-please. See https://github.com/google-github-actions/release-please-action/#configuration for more information.'
     required: false
 
+.set-inputs: &set-inputs
+  ${{ inputs.with-release-please }}
+
 runs:
   using: 'composite'
   steps:
@@ -27,11 +30,7 @@ runs:
     - name: GH Action Validation
       run: 'node dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}'
       shell: bash
-    - name: Set inputs
-      run: &set-inputs
-        ${{ inputs.with-release-please }}
-      shell: bash
- 
+
     # Processing the package release with release-please
     - name: release-please
       uses: google-github-actions/release-please-action@v3
