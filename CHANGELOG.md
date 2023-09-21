@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.9](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.8...v0.1.9) (2023-09-21)
+
+
+### Bug Fixes
+
+* output files ([860475c](https://github.com/DXHeroes/gh-action-auto-release/commit/860475c66e08161624ce57cacc0de43e5192b81c))
+
 ## [0.1.8](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.7...v0.1.8) (2023-09-21)
 
 
