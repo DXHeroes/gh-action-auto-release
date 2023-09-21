@@ -31,5 +31,5 @@ runs:
       run: 'echo "Publishing test successfull"'
       shell: bash
     - name: Publish to npmjs.com
-      if: contains(github.event.head_commit.message, 'chore(release)') && inputs.type == node
+      if: contains(github.event.head_commit.message, 'chore(release)') && inputs.type == 'node'
       uses: ./actions/publish-npm.yml
