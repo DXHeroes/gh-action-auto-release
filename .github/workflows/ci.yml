@@ -13,13 +13,16 @@ jobs:
   test-action:
     name: "Release Action"
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: libraries/js-lib
     steps:
       - uses: actions/checkout@v3
       - id: test-action
         uses: ./
         with:
           release-type: node
-          package-name: hello-world
+          package-name: prs-test-js-lib
           prerelease: true
           extra-files: |
             README.md
