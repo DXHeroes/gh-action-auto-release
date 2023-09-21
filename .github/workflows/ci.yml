@@ -26,7 +26,6 @@ jobs:
           package-path: libraries/js-lib
           extra-files: |
             README.md
-            { "type": "json", "path": "libraries/js-lib/package.json", "jsonpath": "$.version" }
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
