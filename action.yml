@@ -1,6 +1,9 @@
 name: 'Release SDK in multiple technologies fully automtically'
 description: 'Greet someone and record the time'
 author: DX Heroes (https://www.dxheroes.io)
+branding:
+  icon: zap
+  color: green  
 
 inputs:
   package-name:
@@ -24,12 +27,16 @@ runs:
     - name: GH Action Validation
       run: 'node dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}'
       shell: bash
-
+    - name: Set inputs
+      run: &set-inputs
+        ${{ inputs.with-release-please }}
+      shell: bash
+ 
     # Processing the package release with release-please
     - name: release-please
       uses: google-github-actions/release-please-action@v3
       with:
-        <<: ${{ inputs.with-release-please }}
+        <<: *set-inputs
         release-type: ${{ inputs.release-type }}
         package-name: ${{ inputs.package-name }}
 
