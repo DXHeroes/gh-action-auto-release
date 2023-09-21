@@ -1,6 +1,6 @@
 {
   "name": "gh-action-auto-release",
-  "version": "0.1.9",
+  "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:DXHeroes/gh-action-auto-release.git",
   "author": "Prokop Simek <prokop@dxheroes.io>",

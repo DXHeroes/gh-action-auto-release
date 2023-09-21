@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.9...v1.0.0) (2023-09-21)
+
+
+### Continuous Integration
+
+* remove prerelease mark ([43cbb2e](https://github.com/DXHeroes/gh-action-auto-release/commit/43cbb2e3ce1dc4f8d0905dce8b4ed3fe07d3497e))
+
 ## [0.1.9](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.8...v0.1.9) (2023-09-21)
 
 
