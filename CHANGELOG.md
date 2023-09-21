@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.0...v0.1.1) (2023-09-21)
+
+
+### Bug Fixes
+
+* pr title pattern ([53fc22a](https://github.com/DXHeroes/gh-action-auto-release/commit/53fc22ace479b4560562fceab3a6816e4f3eae7a))
+
 ## 0.1.0 (2023-09-21)
 
 
