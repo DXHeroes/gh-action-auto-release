@@ -24,8 +24,8 @@ runs:
     - name: release-please
       uses: google-github-actions/release-please-action@v3
       with:
-        release-type: inputs.release-type
-        package-name: inputs.package-name
+        release-type: ${{ inputs.release-type }}
+        package-name: ${{ inputs.package-name }}
 
     # Testing the publishing of the package
     - name: Publish test
