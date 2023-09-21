@@ -9,5 +9,5 @@ runs:
     - uses: actions/checkout@v3
     - uses: hotaruma/packagist-sync@v1
       with:
-        packagist-username: ${{ secrets.PACKAGIST_USERNAME }}
-        api-token: ${{ secrets.PACKAGIST_TOKEN }}
+        packagist-username: ${{ env.PACKAGIST_USERNAME }}
+        api-token: ${{ env.PACKAGIST_TOKEN }}

@@ -14,7 +14,7 @@ runs:
       shell: bash
     # add RubyGems API key into the credentials file and update permissions
     - env:
-        RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        RUBYGEMS_API_KEY: ${{ env.RUBYGEMS_API_KEY }}
       run: |
         cat << EOF > ~/.gem/credentials
         ---

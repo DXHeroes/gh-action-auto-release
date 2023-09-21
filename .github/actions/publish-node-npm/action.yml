@@ -15,4 +15,4 @@ runs:
     - run: npm publish --access public
       shell: bash
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
