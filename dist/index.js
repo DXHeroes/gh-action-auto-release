@@ -3038,10 +3038,8 @@ try {
     if (!releaseType) {
         throw new Error(`Release type is required.`);
     }
-    else {
-        if (VALID_RELEASE_TYPES.includes(releaseType)) {
-            throw new Error(`Release type '${releaseType}' is not valid. Valid values are: ${VALID_RELEASE_TYPES.join(', ')}.`);
-        }
+    else if (!VALID_RELEASE_TYPES.includes(releaseType)) {
+        throw new Error(`Release type '${releaseType}' is not valid. Valid values are: ${VALID_RELEASE_TYPES.join(', ')}.`);
     }
     // validate package name is provided
     if (!packageName) {
