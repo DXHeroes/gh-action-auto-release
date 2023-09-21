@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.8](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.7...v0.1.8) (2023-09-21)
+
+
+### Bug Fixes
+
+* output correct version to slack ([6c1cac8](https://github.com/DXHeroes/gh-action-auto-release/commit/6c1cac896610b166c2866c57a4891f69c40ffd24))
+* steps output ([c4757ad](https://github.com/DXHeroes/gh-action-auto-release/commit/c4757ad64c10ed9ba3c6c4de15c529d206702ca7))
+
 ## [0.1.7](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.6...v0.1.7) (2023-09-21)
 
 
