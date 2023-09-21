@@ -1,0 +1,13 @@
+# This workflow will publish a package to packagist.org when a release is created
+
+name: Publish to packagist.org
+description: This workflow will publish a package to packagist.org when a release is created
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+    - uses: hotaruma/packagist-sync@v1
+      with:
+        packagist-username: ${{ secrets.PACKAGIST_USERNAME }}
+        api-token: ${{ secrets.PACKAGIST_TOKEN }}

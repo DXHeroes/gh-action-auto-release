@@ -1,0 +1,26 @@
+# This workflow will publish a gem to rubygems.org when a release is created
+
+name: Publish Gem to rubygems.org
+description: This workflow will publish a gem to rubygems.org when a release is created
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "2.7"
+    - run: gem build
+      shell: bash
+    # add RubyGems API key into the credentials file and update permissions
+    - env:
+        RUBYGEMS_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+      run: |
+        cat << EOF > ~/.gem/credentials
+        ---
+        :rubygems_api_key: ${RUBYGEMS_API_KEY}
+        EOF
+        chmod 0600 ~/.gem/credentials
+      shell: bash
+    - run: gem push ./*.gem
+      shell: bash
