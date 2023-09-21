@@ -195,14 +195,14 @@ runs:
     # Publishing the package to npmjs.com if the release is a node package
     - name: Publish to npmjs.com
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'node'
-      uses: ./actions/publish-node-npm.yml
+      uses: ./.github/actions/publish-node-npm.yml
 
     # Publishing the package to rubygems.org if the release is a ruby package
     - name: Publish to rubygems.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'ruby'
-      uses: ./actions/publish-ruby-rubygems.yml
+      uses: ./.github/actions/publish-ruby-rubygems.yml
 
     # Publishing the package to packagist.org if the release is a php package
     - name: Publish to packagist.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'php'
-      uses: ./actions/publish-php-packagist.yml
+      uses: ./.github/actions/publish-php-packagist.yml
