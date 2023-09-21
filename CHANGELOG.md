@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.1](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.0...v1.0.1) (2023-09-21)
+
+
+### Bug Fixes
+
+* release example lib with same version as gh action ([5cd9a0c](https://github.com/DXHeroes/gh-action-auto-release/commit/5cd9a0c3c029bb4a9b666e7f18709227b92e9cea))
+
+
+### Reverts
+
+* json version replacement ([ffed8e4](https://github.com/DXHeroes/gh-action-auto-release/commit/ffed8e4fc131a39129095c4b421d799a118cfaf1))
+
 ## [1.0.0](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.9...v1.0.0) (2023-09-21)
 
 
