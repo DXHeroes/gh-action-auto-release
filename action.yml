@@ -1,5 +1,5 @@
 name: 'Release SDK in multiple technologies fully automtically'
-description: 'Greet someone and record the time'
+description: 'This action will release your SDK to multiple package managers fully automatically. It will create a release PR in your repository and publish the package to the package manager. It will also send a Slack notification about the release.'
 author: DX Heroes (https://www.dxheroes.io)
 branding:
   icon: zap
