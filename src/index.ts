@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import minimist from 'minimist';
 
 const VALID_RELEASE_TYPES = ['test', 'node'];
 
@@ -6,8 +7,9 @@ try {
     core.info(`Validating input parameters...`);
 
     // get input values
-    const releaseType = core.getInput('release-type', { required: true });
-    const packageName = core.getInput('package-name', { required: true });
+    const args = minimist(process.argv.slice(2));
+    const releaseType = args['release-type'];
+    const packageName = args['package-name'];
     
     // validate release type is provided and is valid
     if (!releaseType) {

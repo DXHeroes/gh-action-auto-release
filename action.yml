@@ -1,5 +1,6 @@
 name: 'Release SDK in multiple technologies fully automtically'
 description: 'Greet someone and record the time'
+author: DX Heroes (https://www.dxheroes.io)
 
 inputs:
   package-name:
@@ -18,7 +19,7 @@ runs:
       shell: bash
     # Validate the action parameters
     - name: GH Action Validation
-      run: 'node dist/index.js'
+      run: 'node dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}'
       shell: bash
 
     # Processing the package release with release-please
