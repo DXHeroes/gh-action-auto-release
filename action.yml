@@ -14,14 +14,12 @@ runs:
   using: 'composite'
   steps:
     - uses: actions/checkout@v3
-
+    - run: echo "Hello ${{ inputs.package-name }}! ${{ inputs.release-type }}."
+      shell: bash
     # Validate the action parameters
     - name: GH Action Validation
       run: 'node dist/index.js'
       shell: bash
-      with:
-        release-type: ${{ inputs.release-type }}
-        package-name: ${{ inputs.package-name }}
 
     # Processing the package release with release-please
     - name: release-please

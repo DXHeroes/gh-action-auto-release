@@ -6,8 +6,8 @@ try {
     core.info(`Validating input parameters...`);
 
     // get input values
-    const releaseType = core.getInput('release-type');
-    const packageName = core.getInput('package-name');
+    const releaseType = core.getInput('release-type', { required: true });
+    const packageName = core.getInput('package-name', { required: true });
     
     // validate release type is provided and is valid
     if (!releaseType) {
