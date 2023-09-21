@@ -253,7 +253,7 @@ runs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "Your package <*${{ jobs.package-manager-link.outputs.package-manager-link }}@${{ jobs.release-please.outputs.major }}.${{ jobs.release-please.outputs.minor }}.${{ jobs.release-please.outputs.patch }}*> has been released!"
+                  "text": "Your package <*${{ steps.package-manager-link.outputs.package-manager-link }}@${{ steps.release-please.outputs.major }}.${{ steps.release-please.outputs.minor }}.${{ steps.release-please.outputs.patch }}*> has been released!"
                 }
               },
               {
