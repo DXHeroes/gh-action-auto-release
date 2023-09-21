@@ -27,9 +27,9 @@ runs:
         release-type: node
         package-name: hello-world
     - name: Publish test
-      if: input.type == 'test'
+      if: inputs.type == 'test'
       run: 'echo "Publishing test successfull"'
       shell: bash
     - name: Publish to npmjs.com
-      if: contains(github.event.head_commit.message, 'chore(release)') && input.type == node
+      if: contains(github.event.head_commit.message, 'chore(release)') && inputs.type == node
       uses: ./actions/publish-npm.yml
