@@ -75,8 +75,8 @@ inputs:
   monorepo-tags:
     description: 'add prefix to tags and branches, allowing multiple libraries to be released from the same repository'
     default: 'false'
-  pull-request-title-pattern:
-    description: 'add title pattern to make release PR, defaults to using "chore${scope}: release${component} ${version}"'
+  # pull-request-title-pattern:
+  #   description: 'add title pattern to make release PR, defaults to using "chore${scope}: release${component} ${version}"'
   pull-request-header:
     description: 'set release PR header, defaults to using ":robot: I have created a release *beep* *boop*"'
   draft:
@@ -164,7 +164,8 @@ runs:
         github-graphql-url: ${{ inputs.github-graphql-url }}
         repo-url: ${{ inputs.repo-url }}
         monorepo-tags: ${{ inputs.monorepo-tags }}
-        pull-request-title-pattern: ${{ inputs.pull-request-title-pattern }}
+        # pull-request-title-pattern: ${{ inputs.pull-request-title-pattern }}
+        pull-request-title-pattern: "chore(release): ${version}"
         pull-request-header: ${{ inputs.pull-request-header }}
         draft: ${{ inputs.draft }}
         draft-pull-request: ${{ inputs.draft-pull-request }}
