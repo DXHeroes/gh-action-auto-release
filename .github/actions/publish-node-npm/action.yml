@@ -4,6 +4,12 @@
 name: Publish to npmjs.com
 description: This workflow will publish a package to npmjs.com when a release is created
  
+inputs:
+  package-path:
+    description: 'The path to the package directory'
+    required: false
+    default: '.'
+
 runs:
   using: composite
   steps:
@@ -14,5 +20,6 @@ runs:
         registry-url: https://registry.npmjs.org/
     - run: npm publish --access public
       shell: bash
+      working-directory: ${{ inputs.package-path }}
       env:
         NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}

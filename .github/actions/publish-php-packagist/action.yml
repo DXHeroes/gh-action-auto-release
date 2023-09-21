@@ -3,11 +3,18 @@
 name: Publish to packagist.org
 description: This workflow will publish a package to packagist.org when a release is created
 
+inputs:
+  package-path:
+    description: 'The path to the package directory'
+    required: false
+    default: '.'
+
 runs:
   using: composite
   steps:
     - uses: actions/checkout@v3
     - uses: hotaruma/packagist-sync@v1
+      working-directory: ${{ inputs.package-path }}
       with:
         packagist-username: ${{ env.PACKAGIST_USERNAME }}
         api-token: ${{ env.PACKAGIST_TOKEN }}

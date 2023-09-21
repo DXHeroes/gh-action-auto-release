@@ -13,6 +13,10 @@ inputs:
     description: 'Type of package to release'
     required: true
     default: node # Possible values: [test, node]
+  package-path:
+    description: 'Path to the package to release'
+    required: false
+    default: .
 
   # release-please action parameters https://github.com/google-github-actions/release-please-action/blob/main/action.yml
   token:
@@ -196,6 +200,8 @@ runs:
     - name: Publish to npmjs.com
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'node'
       uses: ./.github/actions/publish-node-npm
+      with:
+        package-path: ${{ inputs.package-path }}
       env:
         NPM_TOKEN: ${{ env.NPM_TOKEN }}
 
@@ -203,6 +209,8 @@ runs:
     - name: Publish to rubygems.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'ruby'
       uses: ./.github/actions/publish-ruby-rubygems
+      with:
+        package-path: ${{ inputs.package-path }}
       env:
         RUBYGEMS_API_KEY: ${{ env.RUBYGEMS_API_KEY }}
 
@@ -210,6 +218,8 @@ runs:
     - name: Publish to packagist.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'php'
       uses: ./.github/actions/publish-php-packagist
+      with:
+        package-path: ${{ inputs.package-path }}
       env:
         PACKAGIST_USERNAME: ${{ env.PACKAGIST_USERNAME }}
         PACKAGIST_TOKEN: ${{ env.PACKAGIST_TOKEN }}

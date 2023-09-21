@@ -3,6 +3,12 @@
 name: Publish Gem to rubygems.org
 description: This workflow will publish a gem to rubygems.org when a release is created
 
+inputs:
+  package-path:
+    description: 'The path to the package directory'
+    required: false
+    default: '.'
+
 runs:
   using: composite
   steps:
@@ -12,6 +18,7 @@ runs:
         ruby-version: "2.7"
     - run: gem build
       shell: bash
+      working-directory: ${{ inputs.package-path }}
     # add RubyGems API key into the credentials file and update permissions
     - env:
         RUBYGEMS_API_KEY: ${{ env.RUBYGEMS_API_KEY }}
@@ -22,5 +29,7 @@ runs:
         EOF
         chmod 0600 ~/.gem/credentials
       shell: bash
+      working-directory: ${{ inputs.package-path }}
     - run: gem push ./*.gem
       shell: bash
+      working-directory: ${{ inputs.package-path }}

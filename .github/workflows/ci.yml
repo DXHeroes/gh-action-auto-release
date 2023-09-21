@@ -23,6 +23,7 @@ jobs:
         with:
           release-type: node
           package-name: prs-test-js-lib
+          package-path: libraries/js-lib
           prerelease: true
           extra-files: |
             README.md
