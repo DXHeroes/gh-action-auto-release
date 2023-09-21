@@ -1,4 +1,4 @@
-# GH Action Auto Release v0.1.6 <!-- {x-release-please-version} -->
+# GH Action Auto Release v0.1.7 <!-- {x-release-please-version} -->
 
 # Hello world javascript action
 
