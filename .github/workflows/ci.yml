@@ -15,7 +15,7 @@ jobs:
               uses: ./
               with:
                 package-name: hello-world
-                release-type: test
+                release-type: node
               env: 
                 NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
                 
