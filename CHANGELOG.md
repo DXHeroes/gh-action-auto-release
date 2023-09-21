@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.1...v0.1.2) (2023-09-21)
+
+
+### Bug Fixes
+
+* move gh actions ([80684b4](https://github.com/DXHeroes/gh-action-auto-release/commit/80684b4c0227979d17a7c437ff385f00532b8929))
+
 ## [0.1.1](https://github.com/DXHeroes/gh-action-auto-release/compare/v0.1.0...v0.1.1) (2023-09-21)
 
 
