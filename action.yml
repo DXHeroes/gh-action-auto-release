@@ -1,35 +1,39 @@
-name: 'Hello World'
+name: 'Release SDK in multiple technologies fully automtically'
 description: 'Greet someone and record the time'
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  package-name:
+    description: 'Name of the package to release'
     required: true
-    default: 'World'
-  type:
+  release-type:
     description: 'Type of package to release'
     required: true
     default: test # Possible values: [test, node]
 
-# outputs:
-#   time: # id of output
-#     description: 'The time we greeted you'
 runs:
-  # using: 'node16'
-  # main: 'dist/index.js'
   using: 'composite'
   steps:
-    - name: Checks
+    - uses: actions/checkout@v3
+
+    # Validate the action parameters
+    - name: GH Action Validation
       run: 'node dist/index.js'
       shell: bash
-    - name: release-plase
-      uses: google-github-actions/release-please-action@v3.7.10
+
+    # Processing the package release with release-please
+    - name: release-please
+      uses: google-github-actions/release-please-action@v3
       with:
-        release-type: node
-        package-name: hello-world
+        release-type: inputs.release-type
+        package-name: inputs.package-name
+
+    # Testing the publishing of the package
     - name: Publish test
-      if: inputs.type == 'test'
+      if: inputs.release-type == 'test'
       run: 'echo "Publishing test successfull"'
       shell: bash
+
+    # Publishing the package to npmjs.com if the release is a node package
     - name: Publish to npmjs.com
-      if: contains(github.event.head_commit.message, 'chore(release)') && inputs.type == 'node'
+      if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'node'
       uses: ./actions/publish-npm.yml

@@ -1,22 +1,20 @@
 name: Continuous Integration
 
-on: [push]
+on:
+    push:
+        branches:
+            - master
 
 jobs:
     test-action:
         name: "Test release action"
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout
-              id: checkout
-              uses: actions/checkout@v4
             - id: test-action
               uses: ./
               with:
-                  who-to-greet: Prokop
-                  type: test
-            - name: Print Output
-              id: output
-              run: echo "${{ steps.test-action.outputs.time }}"
-
-# uses: https://github.com/DXHeroes/gh-action-auto-release
+                package-name: hello-world
+                release-type: test
+              env: 
+                NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+                
