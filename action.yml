@@ -5,9 +5,19 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+# outputs:
+#   time: # id of output
+#     description: 'The time we greeted you'
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  # using: 'node16'
+  # main: 'dist/index.js'
+  using: 'composite'
+  steps:
+    - name: Checks
+      run: 'dist/index.js'
+      shell: node
+    - name: release-plase
+      uses: google-github-actions/release-please-action@v3.7.10
+      with:
+        release-type: node
+        package-name: hello-world
