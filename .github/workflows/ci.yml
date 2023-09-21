@@ -10,6 +10,7 @@ jobs:
         name: "Test release action"
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v3
             - id: test-action
               uses: ./
               with:
