@@ -1,0 +1,17 @@
+# This workflow will publish a package to pub.dev when a release is created
+
+name: Publish to pub.dev
+description: This workflow will publish a package to pub.dev when a release is created
+
+inputs:
+  package-path:
+    description: 'The path to the package directory'
+    required: false
+    default: '.'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+    - uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+      working-directory: ${{ inputs.package-path }}

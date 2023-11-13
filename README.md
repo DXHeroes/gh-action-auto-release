@@ -25,11 +25,11 @@ You can get your package published in a few minutes and you won't have to worry 
 - ✅ node
 - ✅ php
 - ✅ ruby
+- ✅ C#
+- ✅ dart
 
 ## Please request other package types in the issues
 
-- 🛠️ .NET
-- 🛠️ dart
 - 🛠️ elixir
 - 🛠️ go
 - 🛠️ helm

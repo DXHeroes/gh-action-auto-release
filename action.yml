@@ -144,6 +144,7 @@ runs:
 
     # Validate the action parameters
     - name: GH Action Validation
+      id: gh-action-validation
       run: 'node dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}'
       shell: bash
 
@@ -152,7 +153,7 @@ runs:
       id: release-please
       uses: google-github-actions/release-please-action@v3
       with:
-        release-type: ${{ inputs.release-type }}
+        release-type: ${{ steps.gh-action-validation.outputs.release-please-release-type }}
         package-name: ${{ inputs.package-name }}
         token: ${{ inputs.token }}
         fork: ${{ inputs.fork }}
@@ -230,6 +231,24 @@ runs:
         PACKAGIST_USERNAME: ${{ env.PACKAGIST_USERNAME }}
         PACKAGIST_TOKEN: ${{ env.PACKAGIST_TOKEN }}
 
+    # Publishing the package to nuget.org if the release is a C# package
+    - name: Publish to nuget.org
+      if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'csharp'
+      uses: ./.github/actions/publish-csharp-nuget
+      with:
+        package-path: ${{ inputs.package-path }}
+      env:
+        NUGET_DIR: ${{ env.NUGET_DIR }}
+        NUGET_APIKEY: ${{ env.NUGET_APIKEY }}
+
+    # Publishing the package to pub.dev if the release is a Dart package
+    - name: Publish to pub.dev
+      # if: contains(github.event.head_commit.message, 'v[0-9]+.[0-9]+.[0-9]+*') && inputs.release-type == 'dart'
+      if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'dart'
+      uses: ./.github/actions/publish-dart-pubdev
+      with:
+        package-path: ${{ inputs.package-path }}
+      
     # TODO: Add publishing to other package managers
     # ...
 
