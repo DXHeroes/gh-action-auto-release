@@ -1,0 +1,22 @@
+# This workflow will publish a package to nuget.org when a release is created
+
+name: Publish to nuget.org
+description: This workflow will publish a package to nuget.org when a release is created
+
+inputs:
+  package-path:
+    description: 'The path to the package directory'
+    required: false
+    default: '.'
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+    - env:
+        NUGET_DIR: ${{ env.NUGET_DIR }}
+        NUGET_APIKEY: ${{ env.NUGET_APIKEY }}
+      run: dotnet nuget push "${{ env.NUGET_DIR }}/*.nupkg" --api-key "${{ secrets.NUGET_APIKEY }}" --source https://api.nuget.org/v3/index.json
+      shell: bash
+      working-directory: ${{ inputs.package-path }}
