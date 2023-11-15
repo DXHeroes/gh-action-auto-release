@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.8](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.7...v1.0.8) (2023-11-15)
+
+
+### Bug Fixes
+
+* npmjs as a registry for node ([0a95881](https://github.com/DXHeroes/gh-action-auto-release/commit/0a958810065081146a35f86d5eff783bf369d3a3))
+* remove composer-json-path for php ([2e461c0](https://github.com/DXHeroes/gh-action-auto-release/commit/2e461c0c39156d55d256e890096957247308a4b7))
+
 ## [1.0.7](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.6...v1.0.7) (2023-11-15)
 
 
