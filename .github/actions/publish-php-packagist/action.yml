@@ -17,4 +17,3 @@ runs:
       with:
         packagist-username: ${{ env.PACKAGIST_USERNAME }}
         api-token: ${{ env.PACKAGIST_TOKEN }}
-        composer-json-path: ${{ inputs.package-path }}
