@@ -47,6 +47,12 @@ You can get your package published in a few minutes and you won't have to worry 
 
 ## Prerequisites
 
+### GitHub Actions
+You must allow GitHub actions to create and approve pull requests. You can do this in the [organization or repository settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests).
+
+- Organization: https://github.com/organizations/YOUR_ORG/settings/actions (replace YOUR_ORG with your organization name)
+- Personal repository: https://github.com/YOUR_OWNER/YOUR_REPO/settings/actions (replace YOUR_OWNER with your GitHub username and YOUR_REPO with your repository name).
+
 ### Node.js package
 
 Add these secret to your repository:
