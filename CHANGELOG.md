@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.1...v1.0.2) (2023-11-15)
+
+
+### Miscellaneous Chores
+
+* release 1.0.2 ([c9ac9df](https://github.com/DXHeroes/gh-action-auto-release/commit/c9ac9dfe5e862c46136f15ca9a4d013bca6b9f44))
+
 ## [1.0.1](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.0...v1.0.1) (2023-11-15)
 
 
