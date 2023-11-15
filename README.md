@@ -82,7 +82,7 @@ Add these secret to your repository:
 Create a new file in your repository `.github/workflows/release.yml` with the following content that fits your package type.
 
 ### For Node.js package
-#### JavaScript
+
 <!-- {x-release-please-start-major} -->
 ```yaml
 name: Release
@@ -110,43 +110,6 @@ jobs:
 ```
 <!-- {x-release-please-end} -->
 
-#### TypeScript
-```yaml
-name: Release
-on:
-  push:
-    branches:
-      - main # set your default branch
-
-permissions:
-  contents: write
-  pull-requests: write
-
-jobs:
-  build:
-    name: Build package
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm install
-      - run: npm run build
-  release:
-    name: Release by DX Heroes
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v1
-        with:
-          release-type: node
-          package-name: prs-test-js-lib
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-```
-
 ### For PHP package
 <!-- {x-release-please-start-major} -->
 ```yaml
@@ -171,8 +134,8 @@ jobs:
           release-type: php
           package-name: prs-test-php-lib
         env:
-          PACKAGIST_USERNAME: ${{ env.PACKAGIST_USERNAME }}
-          PACKAGIST_TOKEN: ${{ env.PACKAGIST_TOKEN }}
+          PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+          PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
 ```
 <!-- {x-release-please-end} -->
 
