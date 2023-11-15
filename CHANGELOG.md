@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.4...v1.0.5) (2023-11-15)
+
+
+### Bug Fixes
+
+* symlink for gh actions ([d240361](https://github.com/DXHeroes/gh-action-auto-release/commit/d2403612833752fc2d8f0b9d23cfecefac4e1d62))
+
 ## [1.0.4](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.3...v1.0.4) (2023-11-15)
 
 
