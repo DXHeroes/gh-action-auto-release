@@ -14,7 +14,7 @@ runs:
   steps:
     - uses: actions/checkout@v3
     - uses: hotaruma/packagist-sync@v1
-      working-directory: ${{ inputs.package-path }}
       with:
         packagist-username: ${{ env.PACKAGIST_USERNAME }}
         api-token: ${{ env.PACKAGIST_TOKEN }}
+        composer-json-path: ${{ inputs.package-path }}
