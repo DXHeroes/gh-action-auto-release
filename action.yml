@@ -1,181 +1,179 @@
 name: Release Publish Notify Please
-description: 'Release your SDK to multiple package managers fully automatically, including notifications.'
+description: "Release your SDK to multiple package managers fully automatically, including notifications."
 author: DX Heroes (https://www.dxheroes.io)
 branding:
   icon: zap
-  color: green  
+  color: green
 
 inputs:
   package-name:
-    description: 'Name of the package to release'
+    description: "Name of the package to release"
     required: true
   release-type:
-    description: 'Type of package to release'
+    description: "Type of package to release"
     required: true
     default: node # Possible values: [test, node]
   package-path:
-    description: 'Path to the package to release'
+    description: "Path to the package to release"
     required: false
     default: .
 
   # release-please action parameters https://github.com/google-github-actions/release-please-action/blob/main/action.yml
   token:
-    description: 'GitHub token for creating and grooming release PRs, defaults to using secrets.GITHUB_TOKEN'
+    description: "GitHub token for creating and grooming release PRs, defaults to using secrets.GITHUB_TOKEN"
     default: ${{ github.token }}
   fork:
-    description: 'should the PR be proposed from a fork, Default to false'
-    default: 'false'
+    description: "should the PR be proposed from a fork, Default to false"
+    default: "false"
   clean:
-    description: 'Should stale release PRs be closed post release? Defaults to true'
-    default: 'true'
+    description: "Should stale release PRs be closed post release? Defaults to true"
+    default: "true"
   bump-minor-pre-major:
-    description: 'should breaking changes before 1.0.0 produce minor bumps'
-    default: 'false'
+    description: "should breaking changes before 1.0.0 produce minor bumps"
+    default: "false"
   bump-patch-for-minor-pre-major:
-    description: 'should feat changes before 1.0.0 produce patch bumps instead of minor bumps'
-    default: 'false'
+    description: "should feat changes before 1.0.0 produce patch bumps instead of minor bumps"
+    default: "false"
   path:
     description: "create a release from a path other than the repository's root"
-    default: ''
+    default: ""
   changelog-path:
-    description: 'specify a CHANGELOG path other than the root CHANGELOG.md'
-    default: ''
+    description: "specify a CHANGELOG path other than the root CHANGELOG.md"
+    default: ""
   changelog-host:
-    description: 'The proto://host where commits live.'
+    description: "The proto://host where commits live."
     default: ${{ github.server_url }}
   command:
     description: 'release-please command to run, either "github-release", or "release-pr" (defaults to running both)'
-    default: ''
+    default: ""
   version-file:
-    description: 'provide a path to a version file to increment (used by ruby releaser)'
-    default: ''
+    description: "provide a path to a version file to increment (used by ruby releaser)"
+    default: ""
   extra-files:
-    description: 'extra files to bump using the generic updater'
-    default: ''
+    description: "extra files to bump using the generic updater"
+    default: ""
   default-branch:
-    description: 'branch to open pull release PR against (detected by default)'
-    default: ''
+    description: "branch to open pull release PR against (detected by default)"
+    default: ""
   changelog-types:
-    description: 'changlelog commit types'
-    default: ''
+    description: "changlelog commit types"
+    default: ""
   config-file:
-    description: 'where can the config file be found in the project?'
-    default: ''
+    description: "where can the config file be found in the project?"
+    default: ""
   manifest-file:
-    description: 'where can the manifest file be found in the project?'
-    default: ''
+    description: "where can the manifest file be found in the project?"
+    default: ""
   signoff:
     description: 'Add [`Signed-off-by`](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff) line at the end of the commit log message using the user and email provided. (format "Name \<email@example.com\>")'
-    default: ''
+    default: ""
   github-api-url:
-    description: 'configure github API URL. Default `https://api.github.com`'
+    description: "configure github API URL. Default `https://api.github.com`"
     default: ${{ github.api_url }}
   github-graphql-url:
-    description: 'configure github GraphQL URL. Default `https://api.github.com`'
+    description: "configure github GraphQL URL. Default `https://api.github.com`"
     default: ${{ github.graphql_url }}
   repo-url:
-    description: 'configure github repository URL. Default `process.env.GITHUB_REPOSITORY`'
-    default: ''
+    description: "configure github repository URL. Default `process.env.GITHUB_REPOSITORY`"
+    default: ""
   monorepo-tags:
-    description: 'add prefix to tags and branches, allowing multiple libraries to be released from the same repository'
-    default: 'false'
+    description: "add prefix to tags and branches, allowing multiple libraries to be released from the same repository"
+    default: "false"
   # pull-request-title-pattern:
   #   description: 'add title pattern to make release PR, defaults to using "chore${scope}: release${component} ${version}"'
   pull-request-header:
     description: 'set release PR header, defaults to using ":robot: I have created a release *beep* *boop*"'
   draft:
-    description: 'mark release as a draft'
+    description: "mark release as a draft"
   draft-pull-request:
-    description: 'mark pull request as a draft'
+    description: "mark pull request as a draft"
   changelog-notes-type:
     description: "Strategy for building the changelog contents(see https://github.com/googleapis/release-please/blob/main/docs/customizing.md#changelog-types). Default `default`. Called `changelog-type` in release-please documentation."
   versioning-strategy:
-    description: 'Override method of determining SemVer version bumps based on commits (drr https://github.com/googleapis/release-please/blob/main/docs/customizing.md#versioning-strategies). Default `default`'
+    description: "Override method of determining SemVer version bumps based on commits (drr https://github.com/googleapis/release-please/blob/main/docs/customizing.md#versioning-strategies). Default `default`"
   release-as:
-    description: 'manually set version to this value, ignoring conventional commits. Absence defaults to conventional commits derived next version. Once the release PR is merged you should either remove this or update it to a higher version. Otherwise subsequent `manifest-pr` runs will continue to use this version even though it was already set in the last release.'
+    description: "manually set version to this value, ignoring conventional commits. Absence defaults to conventional commits derived next version. Once the release PR is merged you should either remove this or update it to a higher version. Otherwise subsequent `manifest-pr` runs will continue to use this version even though it was already set in the last release."
   skip-github-release:
-    description: 'Skip creating GitHub Releases. Default `false`'
+    description: "Skip creating GitHub Releases. Default `false`"
   prerelease:
-    description: 'If set, create releases that are pre-major or pre-release version marked as pre-release on Github. Defaults `false`'
+    description: "If set, create releases that are pre-major or pre-release version marked as pre-release on Github. Defaults `false`"
   component:
-    description: 'name of the component used for branch naming and release tagging, defaults to a normalized version based on the package name'
+    description: "name of the component used for branch naming and release tagging, defaults to a normalized version based on the package name"
   include-v-in-tag:
     description: 'include "v" in tag versions. Default `true`'
   tag-separator:
-    description: 'configures separator character used in release tag'
+    description: "configures separator character used in release tag"
   snapshot-labels:
-    description: 'sets java snapshot pull request labels other than `autorelease: snapshot`  '
+    description: "sets java snapshot pull request labels other than `autorelease: snapshot`  "
   bootstrap-sha:
-    description: 'if this is the first time running `manifest-pr` on a repo this key will limit how far back (exclusive) to pull commits for conventional commit parsing (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md)'
+    description: "if this is the first time running `manifest-pr` on a repo this key will limit how far back (exclusive) to pull commits for conventional commit parsing (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md)"
   last-release-sha:
-    description: 'overrides the commit sha release-please will use from which to gather commits for the current release (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md)'
+    description: "overrides the commit sha release-please will use from which to gather commits for the current release (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md)"
   always-link-local:
-    description: 'when using the `node-workspace` plugin, setting to false will only bump your local dependencies within the SemVer range (see the manifest releaser docs)[https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md) . Default `true`.'
+    description: "when using the `node-workspace` plugin, setting to false will only bump your local dependencies within the SemVer range (see the manifest releaser docs)[https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md) . Default `true`."
   separate-pull-requests:
-    description: 'create separate pull requests for each package instead of a single manifest release pull request (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md). Default `false`.'
+    description: "create separate pull requests for each package instead of a single manifest release pull request (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md). Default `false`."
   plugins:
-    description: 'see https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md#plugins'
+    description: "see https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md#plugins"
   labels:
-    description: 'list of labels to apply to the release pull requests, defaults to `autorelease: pending`'
+    description: "list of labels to apply to the release pull requests, defaults to `autorelease: pending`"
   release-labels:
-    description: 'set a pull request label other than `autorelease: tagged`'
+    description: "set a pull request label other than `autorelease: tagged`"
   skip-labeling:
-    description: 'if set, labels will not be applied to pull requests. Default `false`.'
+    description: "if set, labels will not be applied to pull requests. Default `false`."
   sequential-calls:
-    description: 'issue GitHub API requests sequentially rather than concurrently (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md). Default `false`'
+    description: "issue GitHub API requests sequentially rather than concurrently (see the manifest releaser docs https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md). Default `false`"
   group-pull-request-title-pattern:
-    description: 'sets the manifest pull request title for when releasing multiple packages grouped together in the one pull request'
+    description: "sets the manifest pull request title for when releasing multiple packages grouped together in the one pull request"
   release-search-depth:
-    description: 'when searching for the latest release SHAs, only consider the last N releases'
+    description: "when searching for the latest release SHAs, only consider the last N releases"
   commit-search-depth:
-    description: 'when fetching the list of commits to consider, only consider the last N commits'
+    description: "when fetching the list of commits to consider, only consider the last N commits"
   proxy-server:
-    description: 'set proxy sever when you run this action behind a proxy. format is host:port e.g. proxy-host.com:8080'
+    description: "set proxy sever when you run this action behind a proxy. format is host:port e.g. proxy-host.com:8080"
 
 outputs:
   package-manager-link:
-    description: 'Link to the package manager where the package was published'
+    description: "Link to the package manager where the package was published"
     value: ${{ steps.package-manager-link.outputs.package-manager-link }}
   major:
-    description: 'Major version of the package'
+    description: "Major version of the package"
     value: ${{ steps.release-please.outputs.major }}
   minor:
-    description: 'Minor version of the package'
+    description: "Minor version of the package"
     value: ${{ steps.release-please.outputs.minor }}
   patch:
-    description: 'Patch version of the package'
+    description: "Patch version of the package"
     value: ${{ steps.release-please.outputs.patch }}
   release_created:
-    description: 'Whether a release was created'
+    description: "Whether a release was created"
     value: ${{ steps.release-please.outputs.release_created }}
   sha:
-    description: 'SHA of the release'
+    description: "SHA of the release"
     value: ${{ steps.release-please.outputs.sha }}
   pr:
-    description: 'PR number of the release'
+    description: "PR number of the release"
     value: ${{ steps.release-please.outputs.pr }}
   prs:
-    description: 'PR numbers of the release'
+    description: "PR numbers of the release"
     value: ${{ steps.release-please.outputs.prs }}
   upload_url:
-    description: 'Upload URL of the release'
+    description: "Upload URL of the release"
     value: ${{ steps.release-please.outputs.upload_url }}
   html_url:
-    description: 'HTML URL of the release'
+    description: "HTML URL of the release"
     value: ${{ steps.release-please.outputs.html_url }}
   tag_name:
-    description: 'Tag name of the release'
-    value: ${{ steps.release-please.outputs.tag_name }} 
+    description: "Tag name of the release"
+    value: ${{ steps.release-please.outputs.tag_name }}
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - uses: actions/checkout@v3
-    - run: echo "${{ github.action_path }}"
-      shell: bash
     # Validate the action parameters
     - name: GH Action Validation
-      run: 'node ${{ github.action_path }}/dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}'
+      run: "node ${{ github.action_path }}/dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}"
       shell: bash
 
     # Processing the package release with release-please
@@ -233,10 +231,16 @@ runs:
         commit-search-depth: ${{ inputs.commit-search-depth }}
         proxy-server: ${{ inputs.proxy-server }}
 
+    # ref: https://github.com/orgs/community/discussions/41927#discussioncomment-4655948
+    - name: Symlink current Actions repo
+      working-directory: ${{ github.action_path }}
+      shell: bash
+      run: ln -fs $(realpath ../)  /home/runner/work/_actions/current
+
     # Publishing the package to npmjs.com if the release is a node package
     - name: Publish to npmjs.com
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'node'
-      uses: "${{ github.action_path }}/.github/actions/publish-node-npm"
+      uses: ./../../_actions/current/.github/actions/publish-node-npm
       with:
         package-path: ${{ inputs.package-path }}
       env:
@@ -245,7 +249,7 @@ runs:
     # Publishing the package to rubygems.org if the release is a ruby package
     - name: Publish to rubygems.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'ruby'
-      uses: "${{ github.action_path }}/.github/actions/publish-ruby-rubygems"
+      uses: ./../../_actions/current/.github/actions/publish-ruby-rubygems
       with:
         package-path: ${{ inputs.package-path }}
       env:
@@ -254,7 +258,7 @@ runs:
     # Publishing the package to packagist.org if the release is a php package
     - name: Publish to packagist.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'php'
-      uses: "${{ github.action_path }}/.github/actions/publish-php-packagist"
+      uses: ./../../_actions/current/.github/actions/publish-php-packagist
       with:
         package-path: ${{ inputs.package-path }}
       env:
@@ -267,7 +271,7 @@ runs:
     - name: Prepare link to package manager for Slack message
       if: contains(github.event.head_commit.message, 'chore(release)')
       id: package-manager-link
-      run: 'node dist/setLink/index.js --release-type ${{ inputs.release-type }} --package-name ${{ inputs.package-name }} --github-org ${{ github.repository_owner }}'
+      run: "node ${{ github.action_path }}/dist/setLink/index.js --release-type ${{ inputs.release-type }} --package-name ${{ inputs.package-name }} --github-org ${{ github.repository_owner }}"
       shell: bash
 
     # Send a Slack notification about the release
@@ -309,5 +313,3 @@ runs:
       env:
         SLACK_WEBHOOK_URL: ${{ env.SLACK_WEBHOOK_URL }}
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-
-
