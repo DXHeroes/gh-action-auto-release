@@ -13,7 +13,7 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@v3
-    - uses: hotaruma/packagist-sync@v1
+    - uses: hotaruma/packagist-sync@v1.0.1
       with:
         packagist-username: ${{ env.PACKAGIST_USERNAME }}
         api-token: ${{ env.PACKAGIST_TOKEN }}
