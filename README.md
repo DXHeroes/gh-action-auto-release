@@ -82,7 +82,8 @@ Add these secret to your repository:
 Create a new file in your repository `.github/workflows/release.yml` with the following content that fits your package type.
 
 ### For Node.js package
-<!-- {x-release-please-start-version} -->
+#### JavaScript
+<!-- {x-release-please-start-major} -->
 ```yaml
 name: Release
 on:
@@ -100,7 +101,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v1.0.3
+      - uses: dxheroes/gh-action-auto-release@v1
         with:
           release-type: node
           package-name: prs-test-js-lib # replace with your package name
@@ -109,8 +110,45 @@ jobs:
 ```
 <!-- {x-release-please-end} -->
 
+#### TypeScript
+```yaml
+name: Release
+on:
+  push:
+    branches:
+      - main # set your default branch
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build:
+    name: Build package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm run build
+  release:
+    name: Release by DX Heroes
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dxheroes/gh-action-auto-release@v1
+        with:
+          release-type: node
+          package-name: prs-test-js-lib
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
 ### For PHP package
-<!-- {x-release-please-start-version} -->
+<!-- {x-release-please-start-major} -->
 ```yaml
 name: Release
 on:
@@ -128,7 +166,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v1.0.3
+      - uses: dxheroes/gh-action-auto-release@v1
         with:
           release-type: php
           package-name: prs-test-php-lib
@@ -139,7 +177,7 @@ jobs:
 <!-- {x-release-please-end} -->
 
 ### For Ruby package
-<!-- {x-release-please-start-version} -->
+<!-- {x-release-please-start-major} -->
 ```yaml
 name: Release
 on:
@@ -157,7 +195,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v1.0.3
+      - uses: dxheroes/gh-action-auto-release@v1
         with:
           release-type: ruby
           package-name: prs-test-ruby-lib
@@ -188,7 +226,7 @@ env:
 [Please request other platforms in the issues](https://github.com/DXHeroes/gh-action-auto-release/issues)
 
 Example of setting up Slack notifications for node.js package:
-  
+<!-- {x-release-please-start-major} -->
 ```yaml
 name: Release
 on:
@@ -206,7 +244,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v0.1.8
+      - uses: dxheroes/gh-action-auto-release@v1
         with:
           release-type: node
           package-name: prs-test-js-lib # replace with your package name
@@ -214,6 +252,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} ## Configure SLACK_WEBHOOK_URL
 ```
+<!-- {x-release-please-end} -->
 
 ### Customize package path when using monorepo or is not in the root directory
 
