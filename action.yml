@@ -136,6 +136,36 @@ outputs:
   package-manager-link:
     description: 'Link to the package manager where the package was published'
     value: ${{ steps.package-manager-link.outputs.package-manager-link }}
+  major:
+    description: 'Major version of the package'
+    value: ${{ steps.release-please.outputs.major }}
+  minor:
+    description: 'Minor version of the package'
+    value: ${{ steps.release-please.outputs.minor }}
+  patch:
+    description: 'Patch version of the package'
+    value: ${{ steps.release-please.outputs.patch }}
+  release_created:
+    description: 'Whether a release was created'
+    value: ${{ steps.release-please.outputs.release_created }}
+  sha:
+    description: 'SHA of the release'
+    value: ${{ steps.release-please.outputs.sha }}
+  pr:
+    description: 'PR number of the release'
+    value: ${{ steps.release-please.outputs.pr }}
+  prs:
+    description: 'PR numbers of the release'
+    value: ${{ steps.release-please.outputs.prs }}
+  upload_url:
+    description: 'Upload URL of the release'
+    value: ${{ steps.release-please.outputs.upload_url }}
+  html_url:
+    description: 'HTML URL of the release'
+    value: ${{ steps.release-please.outputs.html_url }}
+  tag_name:
+    description: 'Tag name of the release'
+    value: ${{ steps.release-please.outputs.tag_name }} 
 
 runs:
   using: 'composite'
