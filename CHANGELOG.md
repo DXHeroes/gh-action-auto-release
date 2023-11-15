@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.4](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.3...v1.0.4) (2023-11-15)
+
+
+### Bug Fixes
+
+* local action path ([dea03e4](https://github.com/DXHeroes/gh-action-auto-release/commit/dea03e4f888c25d22e6b30c6de0676ff1795e001))
+* use current context ([0c6a698](https://github.com/DXHeroes/gh-action-auto-release/commit/0c6a698e753228f7128226c0ff6456ea75c15fc4))
+* uses to sting ([e49cbad](https://github.com/DXHeroes/gh-action-auto-release/commit/e49cbadfd57e462d7994bc894fd8f99b17b09e6a))
+
 ## [1.0.3](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.2...v1.0.3) (2023-11-15)
 
 
