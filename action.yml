@@ -236,7 +236,7 @@ runs:
     # Publishing the package to npmjs.com if the release is a node package
     - name: Publish to npmjs.com
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'node'
-      uses: ./.github/actions/publish-node-npm
+      uses: ${{ github.action_path }}/.github/actions/publish-node-npm
       with:
         package-path: ${{ inputs.package-path }}
       env:
@@ -245,7 +245,7 @@ runs:
     # Publishing the package to rubygems.org if the release is a ruby package
     - name: Publish to rubygems.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'ruby'
-      uses: ./.github/actions/publish-ruby-rubygems
+      uses: ${{ github.action_path }}/.github/actions/publish-ruby-rubygems
       with:
         package-path: ${{ inputs.package-path }}
       env:
@@ -254,7 +254,7 @@ runs:
     # Publishing the package to packagist.org if the release is a php package
     - name: Publish to packagist.org
       if: contains(github.event.head_commit.message, 'chore(release)') && inputs.release-type == 'php'
-      uses: ./.github/actions/publish-php-packagist
+      uses: ${{ github.action_path }}/.github/actions/publish-php-packagist
       with:
         package-path: ${{ inputs.package-path }}
       env:
