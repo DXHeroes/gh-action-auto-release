@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.7](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.6...v1.0.7) (2023-11-15)
+
+
+### Bug Fixes
+
+* add node-version for npm ([f20aa30](https://github.com/DXHeroes/gh-action-auto-release/commit/f20aa30b3fa74d831eca31ab76d7517e3441d225))
+* lock packagist sync action ([fb7adbf](https://github.com/DXHeroes/gh-action-auto-release/commit/fb7adbf80fec5a64327bd9f57d459e3a95e03297))
+
 ## [1.0.6](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.5...v1.0.6) (2023-11-15)
 
 
