@@ -141,10 +141,11 @@ runs:
   using: 'composite'
   steps:
     - uses: actions/checkout@v3
-
+    - run: echo "${{ github.action_path }}"
+      shell: bash
     # Validate the action parameters
     - name: GH Action Validation
-      run: 'node dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}'
+      run: 'node ${{ github.action_path }}/dist/index.js --package-name ${{ inputs.package-name }} --release-type ${{ inputs.release-type }}'
       shell: bash
 
     # Processing the package release with release-please
