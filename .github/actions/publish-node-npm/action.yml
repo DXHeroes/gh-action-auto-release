@@ -9,6 +9,10 @@ inputs:
     description: 'The path to the package directory'
     required: false
     default: '.'
+  node-version:
+    description: 'The version of node to use'
+    required: false
+    default: 'latest'
 
 runs:
   using: composite
@@ -16,8 +20,11 @@ runs:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
-        node-version: latest
-        registry-url: https://registry.npmjs.org/
+        node-version: ${{ inputs.node-version }}
+    - run: npm install
+      shell: bash
+    - run: npm run build
+      shell: bash
     - run: npm publish --access public
       shell: bash
       working-directory: ${{ inputs.package-path }}

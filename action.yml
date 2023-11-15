@@ -17,6 +17,10 @@ inputs:
     description: "Path to the package to release"
     required: false
     default: .
+  node-version:
+    description: "The version of node to use for publishing to npmjs.com"
+    required: false
+    default: latest
 
   # release-please action parameters https://github.com/google-github-actions/release-please-action/blob/main/action.yml
   token:
@@ -245,6 +249,7 @@ runs:
       uses: ./../../_actions/current/.github/actions/publish-node-npm
       with:
         package-path: ${{ inputs.package-path }}
+        node-version: ${{ inputs.node-version }}
       env:
         NPM_TOKEN: ${{ env.NPM_TOKEN }}
 
