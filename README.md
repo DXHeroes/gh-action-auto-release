@@ -1,6 +1,6 @@
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/dxheroes/gh-action-auto-release?include_prereleases&sort=semver&label=version)
 
-# GH Action Auto Release v1.0.7 <!-- {x-release-please-version} -->
+# GH Action Auto Release v1.0.8 <!-- {x-release-please-version} -->
 
 **Time to implement: 10 minutes.**
 
