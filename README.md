@@ -1,6 +1,6 @@
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/dxheroes/gh-action-auto-release?include_prereleases&sort=semver&label=version)
 
-# GH Action Auto Release v1.0.1 <!-- {x-release-please-version} -->
+# GH Action Auto Release v1.0.2 <!-- {x-release-please-version} -->
 
 **Time to implement: 10 minutes.**
 
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v1.0.1
+      - uses: dxheroes/gh-action-auto-release@v1.0.2
         with:
           release-type: node
           package-name: prs-test-js-lib # replace with your package name
@@ -128,7 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v1.0.1
+      - uses: dxheroes/gh-action-auto-release@v1.0.2
         with:
           release-type: php
           package-name: prs-test-php-lib
@@ -157,7 +157,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: dxheroes/gh-action-auto-release@v1.0.1
+      - uses: dxheroes/gh-action-auto-release@v1.0.2
         with:
           release-type: ruby
           package-name: prs-test-ruby-lib
