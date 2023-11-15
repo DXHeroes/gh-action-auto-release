@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.2...v1.0.3) (2023-11-15)
+
+
+### Bug Fixes
+
+* add all release-please outputs to this action output ([b8d6b89](https://github.com/DXHeroes/gh-action-auto-release/commit/b8d6b89d631eb30a50f4a44203f8c6205da07941))
+
 ## [1.0.2](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.1...v1.0.2) (2023-11-15)
 
 
