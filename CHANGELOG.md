@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.5...v1.0.6) (2023-11-15)
+
+
+### Bug Fixes
+
+* remove working-directory in favor of composer-json-path for php ([242f0e6](https://github.com/DXHeroes/gh-action-auto-release/commit/242f0e6929d66773f7760b928280d6d9cca0194d))
+
 ## [1.0.5](https://github.com/DXHeroes/gh-action-auto-release/compare/v1.0.4...v1.0.5) (2023-11-15)
 
 
